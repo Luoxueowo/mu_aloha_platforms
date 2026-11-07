@@ -17,7 +17,7 @@
 
 #include <Library/RFSProtectionLib.h>
 
-#define MAX_DESTINATION_VMS 3
+#define MAX_DESTINATION_VMS 2
 
 EFI_STATUS
 EFIAPI
@@ -42,12 +42,6 @@ RFSProtectSharedArea(UINT64 efsBaseAddr, UINT64 efsBaseSize)
     },
     {
       AC_VM_MSS_MSA, 
-      (VM_PERM_R | VM_PERM_W), 
-      (UINT64)NULL, 
-      0
-    },
-    {
-      AC_VM_MSS_NAV, 
       (VM_PERM_R | VM_PERM_W), 
       (UINT64)NULL, 
       0

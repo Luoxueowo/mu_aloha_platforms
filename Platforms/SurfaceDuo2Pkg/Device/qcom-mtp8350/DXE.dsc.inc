@@ -1,5 +1,6 @@
 [Components.common]
   $(PACKAGE_NAME)/Device/$(TARGET_DEVICE)/Binaries/MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
+  $(PACKAGE_NAME)/Device/$(TARGET_DEVICE)/PatchedBinaries/PciHostBridgeDxe.inf
   QcomPkg/PatchedBinaries/ClockDxe.inf
   QcomPkg/PatchedBinaries/MinidumpTADxe.inf
   QcomPkg/PatchedBinaries/PmicDxeLa.inf
@@ -33,7 +34,11 @@
   $(PACKAGE_NAME)/Device/$(TARGET_DEVICE)/Binaries/QcomPkg/Drivers/PwrUtilsDxe/PwrUtilsDxe.inf
   $(PACKAGE_NAME)/Device/$(TARGET_DEVICE)/Binaries/QcomPkg/Drivers/QcomChargerDxe/QcomChargerDxeLA.inf
   $(PACKAGE_NAME)/Device/$(TARGET_DEVICE)/Binaries/QcomPkg/Drivers/ResetRuntimeDxe/ResetRuntimeDxe.inf
-  $(PACKAGE_NAME)/Device/$(TARGET_DEVICE)/Binaries/QcomPkg/Drivers/RNGDxe/RngDxe.inf
+  SecurityPkg/RandomNumberGenerator/RngDxe/RngDxe.inf {
+	  <LibraryClasses>
+		  RngLib|MdePkg/Library/BaseRngLib/BaseRngLib.inf
+		  ArmTrngLib|CranePkg/Library/QcomTrngLib/QcomTrngLib.inf
+  }
   $(PACKAGE_NAME)/Device/$(TARGET_DEVICE)/Binaries/QcomPkg/Drivers/RpmhDxe/RpmhDxe.inf
   $(PACKAGE_NAME)/Device/$(TARGET_DEVICE)/Binaries/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   $(PACKAGE_NAME)/Device/$(TARGET_DEVICE)/Binaries/QcomPkg/Drivers/SerialPortDxe/SerialPortDxe.inf
